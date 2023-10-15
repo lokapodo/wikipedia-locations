@@ -18,7 +18,7 @@ struct Location: Decodable {
         case lon = "long"
     }
     
-    init(name: String?, lat: Double, lon: Double) {
+    init(name: String? = nil, lat: Double, lon: Double) {
         self.name = name
         self.lat = lat
         self.lon = lon

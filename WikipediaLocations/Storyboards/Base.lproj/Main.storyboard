@@ -15,9 +15,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="X3h-lP-I3S" userLabel="Header">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="212"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="mTH-fK-5YH">
+                                    <rect key="frame" x="20" y="20" width="353" height="180"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter latitude and longitude of desired location or choose location from the list below" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaB-7m-Etl">
+                                            <rect key="frame" x="0.0" y="0.0" width="353" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4G-4c-Vom">
+                                            <rect key="frame" x="0.0" y="48" width="353" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="qhz-LF-X6X"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-3I-ovx">
+                                            <rect key="frame" x="0.0" y="94" width="353" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="Jb6-jK-TMu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ2-Kk-Yrg">
+                                            <rect key="frame" x="0.0" y="140" width="353" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="cee-8a-0MI"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Open in Wikipedia"/>
+                                            <connections>
+                                                <action selector="tapOnOpenWikipediaButton:" destination="Jlk-mY-Dhb" eventType="touchUpInside" id="jaW-6I-uXz"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="XQ2-Kk-Yrg" secondAttribute="trailing" id="20A-Mf-Q83"/>
+                                        <constraint firstAttribute="trailing" secondItem="IaB-7m-Etl" secondAttribute="trailing" id="Nvk-et-B8H"/>
+                                        <constraint firstItem="r4G-4c-Vom" firstAttribute="leading" secondItem="mTH-fK-5YH" secondAttribute="leading" id="VLm-em-Z8o"/>
+                                        <constraint firstItem="Vfr-3I-ovx" firstAttribute="leading" secondItem="mTH-fK-5YH" secondAttribute="leading" id="akD-hD-o5S"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vfr-3I-ovx" secondAttribute="trailing" id="cEi-wC-8gD"/>
+                                        <constraint firstItem="IaB-7m-Etl" firstAttribute="leading" secondItem="mTH-fK-5YH" secondAttribute="leading" id="peq-9b-qeY"/>
+                                        <constraint firstItem="XQ2-Kk-Yrg" firstAttribute="leading" secondItem="mTH-fK-5YH" secondAttribute="leading" id="ry9-Lu-GXY"/>
+                                        <constraint firstAttribute="trailing" secondItem="r4G-4c-Vom" secondAttribute="trailing" id="wBL-U9-2sU"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <constraints>
+                                <constraint firstItem="mTH-fK-5YH" firstAttribute="top" secondItem="X3h-lP-I3S" secondAttribute="top" constant="20" id="B8y-v4-pLV"/>
+                                <constraint firstAttribute="trailing" secondItem="mTH-fK-5YH" secondAttribute="trailing" constant="20" id="bXS-6w-C4f"/>
+                                <constraint firstItem="mTH-fK-5YH" firstAttribute="leading" secondItem="X3h-lP-I3S" secondAttribute="leading" constant="20" id="xAb-Jw-hT3"/>
+                                <constraint firstAttribute="bottom" secondItem="mTH-fK-5YH" secondAttribute="bottom" constant="12" id="y3a-fw-VTv"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" textLabel="6yF-eb-MJL" detailTextLabel="v47-xC-kV5" style="IBUITableViewCellStyleSubtitle" id="kiq-H4-u6I">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="262" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kiq-H4-u6I" id="vbp-6P-WsS">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -47,6 +108,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Locations" id="v5X-wt-CII"/>
+                    <connections>
+                        <outlet property="latTextField" destination="r4G-4c-Vom" id="X5e-N7-utT"/>
+                        <outlet property="lonTextField" destination="Vfr-3I-ovx" id="ky5-0d-E8U"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80V-7b-kii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +137,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

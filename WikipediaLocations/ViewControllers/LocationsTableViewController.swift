@@ -9,6 +9,20 @@ import UIKit
 import Combine
 
 class LocationsTableViewController: UITableViewController {
+    
+    @IBOutlet weak var latTextField: UITextField!
+    @IBOutlet weak var lonTextField: UITextField!
+
+    @IBAction func tapOnOpenWikipediaButton(_ sender: Any) {
+        guard let latString = latTextField.text, let lat = Double(latString),
+              let lonString = lonTextField.text, let lon = Double(lonString)
+        else {
+            print("Error occured: wrond entered data")
+            return
+        }
+        
+        openWikipedia(location: Location(lat: lat, lon: lon))
+    }
 
     private var locations: [Location] = []
     private var cancellables: Set<AnyCancellable> = .init()
