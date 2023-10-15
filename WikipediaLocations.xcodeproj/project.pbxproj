@@ -99,13 +99,13 @@
 		E2C2699A2ADC7145006D5E72 /* WikipediaLocations */ = {
 			isa = PBXGroup;
 			children = (
-				E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */,
-				E2C2699D2ADC7145006D5E72 /* SceneDelegate.swift */,
-				E2C2699F2ADC7145006D5E72 /* ViewController.swift */,
-				E2C269A12ADC7145006D5E72 /* Main.storyboard */,
-				E2C269A42ADC7148006D5E72 /* Assets.xcassets */,
-				E2C269A62ADC7148006D5E72 /* LaunchScreen.storyboard */,
-				E2C269A92ADC7148006D5E72 /* Info.plist */,
+				E2C269CE2ADC778D006D5E72 /* Main */,
+				E2C269CF2ADC77AF006D5E72 /* Models */,
+				E2C269D02ADC77BC006D5E72 /* ViewModels */,
+				E2C269CB2ADC7738006D5E72 /* ViewControllers */,
+				E2C269D12ADC77D0006D5E72 /* Services */,
+				E2C269CC2ADC775F006D5E72 /* Storyboards */,
+				E2C269CD2ADC776F006D5E72 /* Resources */,
 			);
 			path = WikipediaLocations;
 			sourceTree = "<group>";
@@ -125,6 +125,62 @@
 				E2C269BE2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift */,
 			);
 			path = WikipediaLocationsUITests;
+			sourceTree = "<group>";
+		};
+		E2C269CB2ADC7738006D5E72 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E2C2699F2ADC7145006D5E72 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E2C269CC2ADC775F006D5E72 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E2C269A12ADC7145006D5E72 /* Main.storyboard */,
+				E2C269A62ADC7148006D5E72 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E2C269CD2ADC776F006D5E72 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E2C269A42ADC7148006D5E72 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E2C269CE2ADC778D006D5E72 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */,
+				E2C2699D2ADC7145006D5E72 /* SceneDelegate.swift */,
+				E2C269A92ADC7148006D5E72 /* Info.plist */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E2C269CF2ADC77AF006D5E72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E2C269D02ADC77BC006D5E72 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E2C269D12ADC77D0006D5E72 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
