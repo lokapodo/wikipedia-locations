@@ -25,7 +25,7 @@ class LocationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationCell", for: indexPath)
         let location = locations[indexPath.row]
-        cell.textLabel?.text = location.name
+        cell.textLabel?.text = location.name // FIXME: deprecated
         cell.detailTextLabel?.text = "(\(location.lat); \(location.lon))"
         return cell
     }
