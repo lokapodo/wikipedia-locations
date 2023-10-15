@@ -500,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX2BE5D6B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WikipediaLocations/Info.plist;
+				INFOPLIST_FILE = WikipediaLocations/Main/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -528,7 +528,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX2BE5D6B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WikipediaLocations/Info.plist;
+				INFOPLIST_FILE = WikipediaLocations/Main/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
