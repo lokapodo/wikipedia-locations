@@ -9,11 +9,27 @@ import UIKit
 
 class LocationsTableViewController: UITableViewController {
 
-    private let locations = [testLocation1, testLocation2, testLocation3]
+    private var locations = [testLocation1, testLocation2, testLocation3]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadLocations()
+    }
+    
+    private func loadLocations() {
+        let networkService = LocationsNetworkService(networkService: NetworkService())
+        networkService.getLocations { result in
+            switch result {
+            case .success(let locations):
+                self.locations = locations
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Error occured: ", error.localizedDescription)
+            }
+        }
     }
 
     // MARK: - UITableViewDataSource
