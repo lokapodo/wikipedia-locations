@@ -19,6 +19,7 @@
 		E2C269D52ADC7B4F006D5E72 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D42ADC7B4F006D5E72 /* Location.swift */; };
 		E2C269D72ADC7E58006D5E72 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D62ADC7E58006D5E72 /* NetworkService.swift */; };
 		E2C269D92ADC7E68006D5E72 /* LocationsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D82ADC7E68006D5E72 /* LocationsNetworkService.swift */; };
+		E2C269DB2ADC9443006D5E72 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269DA2ADC9443006D5E72 /* LocationsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		E2C269D42ADC7B4F006D5E72 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E2C269D62ADC7E58006D5E72 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E2C269D82ADC7E68006D5E72 /* LocationsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsNetworkService.swift; sourceTree = "<group>"; };
+		E2C269DA2ADC9443006D5E72 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		E2C269D02ADC77BC006D5E72 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E2C269DA2ADC9443006D5E72 /* LocationsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				E2C269D72ADC7E58006D5E72 /* NetworkService.swift in Sources */,
 				E2C269D32ADC7AF2006D5E72 /* LocationsTableViewController.swift in Sources */,
 				E2C269D52ADC7B4F006D5E72 /* Location.swift in Sources */,
+				E2C269DB2ADC9443006D5E72 /* LocationsViewModel.swift in Sources */,
 				E2C2699C2ADC7145006D5E72 /* AppDelegate.swift in Sources */,
 				E2C2699E2ADC7145006D5E72 /* SceneDelegate.swift in Sources */,
 				E2C269D92ADC7E68006D5E72 /* LocationsNetworkService.swift in Sources */,

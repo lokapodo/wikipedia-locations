@@ -24,8 +24,3 @@ struct Location: Decodable {
         self.lon = lon
     }
 }
-
-let testLocation1 = Location(name: "Something", lat: 50.3547498, lon: 30.8339215)
-let testLocation2 = Location(name: "Copenhagen", lat: 55.6713442, lon: 12.523785)
-let testLocation3 = Location(name: "Amsterdam", lat: 52.3547498, lon: 4.8339215)
-

@@ -6,30 +6,31 @@
 //
 
 import UIKit
+import Combine
 
 class LocationsTableViewController: UITableViewController {
 
-    private var locations = [testLocation1, testLocation2, testLocation3]
+    private var locations: [Location] = []
+    private var cancellables: Set<AnyCancellable> = .init()
+    
+    var viewModel: LocationsViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadLocations()
+        bindToViewModel()
+        viewModel?.fetchLocations()
     }
     
-    private func loadLocations() {
-        let networkService = LocationsNetworkService(networkService: NetworkService())
-        networkService.getLocations { result in
-            switch result {
-            case .success(let locations):
+    private func bindToViewModel() {
+        viewModel?.$locations
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] locations in
                 self.locations = locations
-                DispatchQueue.main.async { [weak self] in
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print("Error occured: ", error.localizedDescription)
-            }
-        }
+                self.tableView.reloadData()
+            }.store(in: &cancellables)
+        
+        // TODO: error handling + loading
     }
 
     // MARK: - UITableViewDataSource
