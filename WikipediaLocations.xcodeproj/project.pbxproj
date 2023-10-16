@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E25B4BD92ADD86E100928037 /* MainServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BD82ADD86E100928037 /* MainServices.swift */; };
+		E25B4BDF2ADDC02E00928037 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */; };
 		E2C2699C2ADC7145006D5E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */; };
 		E2C269A32ADC7145006D5E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C269A12ADC7145006D5E72 /* Main.storyboard */; };
 		E2C269A52ADC7148006D5E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C269A42ADC7148006D5E72 /* Assets.xcassets */; };
@@ -15,7 +16,7 @@
 		E2C269B32ADC7149006D5E72 /* LocationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269B22ADC7149006D5E72 /* LocationsViewModelTests.swift */; };
 		E2C269BD2ADC7149006D5E72 /* WikipediaLocationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269BC2ADC7149006D5E72 /* WikipediaLocationsUITests.swift */; };
 		E2C269BF2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269BE2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift */; };
-		E2C269D32ADC7AF2006D5E72 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D22ADC7AF2006D5E72 /* LocationsTableViewController.swift */; };
+		E2C269D32ADC7AF2006D5E72 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D22ADC7AF2006D5E72 /* LocationsViewController.swift */; };
 		E2C269D52ADC7B4F006D5E72 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D42ADC7B4F006D5E72 /* Location.swift */; };
 		E2C269D72ADC7E58006D5E72 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D62ADC7E58006D5E72 /* NetworkService.swift */; };
 		E2C269D92ADC7E68006D5E72 /* LocationsNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D82ADC7E68006D5E72 /* LocationsNetworkService.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		E25B4BD82ADD86E100928037 /* MainServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServices.swift; sourceTree = "<group>"; };
+		E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		E2C269982ADC7145006D5E72 /* WikipediaLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikipediaLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2C269A22ADC7145006D5E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,7 +54,7 @@
 		E2C269B82ADC7149006D5E72 /* WikipediaLocationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikipediaLocationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C269BC2ADC7149006D5E72 /* WikipediaLocationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaLocationsUITests.swift; sourceTree = "<group>"; };
 		E2C269BE2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaLocationsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		E2C269D22ADC7AF2006D5E72 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
+		E2C269D22ADC7AF2006D5E72 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		E2C269D42ADC7B4F006D5E72 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E2C269D62ADC7E58006D5E72 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E2C269D82ADC7E68006D5E72 /* LocationsNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsNetworkService.swift; sourceTree = "<group>"; };
@@ -147,7 +149,7 @@
 		E2C269CB2ADC7738006D5E72 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E2C269D22ADC7AF2006D5E72 /* LocationsTableViewController.swift */,
+				E2C269D22ADC7AF2006D5E72 /* LocationsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */,
+				E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */,
 				E2C269A92ADC7148006D5E72 /* Info.plist */,
 			);
 			path = Main;
@@ -335,10 +338,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C269D72ADC7E58006D5E72 /* NetworkService.swift in Sources */,
-				E2C269D32ADC7AF2006D5E72 /* LocationsTableViewController.swift in Sources */,
+				E2C269D32ADC7AF2006D5E72 /* LocationsViewController.swift in Sources */,
 				E2C269D52ADC7B4F006D5E72 /* Location.swift in Sources */,
 				E2C269DB2ADC9443006D5E72 /* LocationsViewModel.swift in Sources */,
 				E2C2699C2ADC7145006D5E72 /* AppDelegate.swift in Sources */,
+				E25B4BDF2ADDC02E00928037 /* MainBuilder.swift in Sources */,
 				E2C269D92ADC7E68006D5E72 /* LocationsNetworkService.swift in Sources */,
 				E25B4BD92ADD86E100928037 /* MainServices.swift in Sources */,
 			);

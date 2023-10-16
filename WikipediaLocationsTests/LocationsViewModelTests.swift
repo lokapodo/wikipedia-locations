@@ -26,7 +26,7 @@ class LocationsViewModelTests: XCTestCase {
         let viewModel = LocationsViewModel(networkService: mockNetworkService)
         viewModel.fetchLocations()
         
-        let resultError = viewModel.occurredError as? MockError
+        let resultError = viewModel.error as? MockError
         XCTAssertEqual(resultError, MockError.wrongLatLonFormat)
     }
 

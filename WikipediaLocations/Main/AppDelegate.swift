@@ -10,27 +10,30 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let mainServices = MainServices()
+    private let mainServices = MainServices()
+    private(set) lazy var mainBuilder: MainBuilderProtocol = MainBuilder(mainServices: mainServices)
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        guard let navigationController = window?.rootViewController as? UINavigationController,
-              let locationsViewController = navigationController.viewControllers.first as? LocationsTableViewController
-        else {
-            print("Error occurred, when setting up initial view controller")
-            return false
-        }
-        
-        let networkService = mainServices.networkService
-        let locationsNetworkService = LocationsNetworkService(networkService: networkService)
-        let viewModel = LocationsViewModel(networkService: locationsNetworkService)
-        locationsViewController.viewModel = viewModel
+        setupInitialViewController()
         
         return true
     }
+    
+    func setupInitialViewController() {
+        guard let locationsViewController = self.locationsViewController else {
+            fatalError("Could not setup initial view controller from the storyboard")
+        }
+        mainBuilder.configureLocationsViewController(locationsViewController)
+    }
 
+    private var locationsViewController: LocationsViewController? {
+        let navigationController = window?.rootViewController as? UINavigationController
+        let viewController = navigationController?.viewControllers.first as? LocationsViewController
+        return viewController
+    }
 
 }
 

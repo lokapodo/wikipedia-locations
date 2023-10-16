@@ -7,7 +7,11 @@
 
 import Foundation
 
-class MainServices {
+protocol MainServicesProtocol {
+    var networkService: NetworkService { get }
+}
+
+class MainServices: MainServicesProtocol {
     
     let networkService = NetworkService()
     

@@ -30,16 +30,16 @@ class LocationsViewModel {
         isLoading = true
         
         locationsNetworkService.getLocations { [weak self] result in
-            guard let strongSelf  = self else { return }
+            guard let self else { return }
             
-            strongSelf.isLoading = false
+            self.isLoading = false
             
             switch result {
             case .success(let locations):
-                strongSelf.locations = locations
+                self.locations = locations
             case .failure(let error):
                 print("Error occurred while getting locations: ", error)
-                strongSelf.error = error
+                self.error = error
             }
         }
     }

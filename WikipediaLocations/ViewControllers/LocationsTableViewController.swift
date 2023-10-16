@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class LocationsTableViewController: UITableViewController {
+class LocationsViewController: UITableViewController {
     
     // MARK: - Properties
     
