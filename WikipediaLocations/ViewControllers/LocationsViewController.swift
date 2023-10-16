@@ -48,7 +48,7 @@ class LocationsViewController: UITableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] error in
                 if let error = error {
-                    showErrorAlert(error)
+//                    showErrorAlert(error)
                 }
             }.store(in: &cancellables)
         
@@ -71,6 +71,7 @@ class LocationsViewController: UITableViewController {
               let lonString = lonTextField.text, let lon = Double(lonString)
         else {
             print("Error occurred: wrong entered lat lon format")
+            showErrorAlert(LocationError.wrongLatLonFormat)
             return
         }
         
@@ -78,7 +79,7 @@ class LocationsViewController: UITableViewController {
     }
     
     // FIXME: responsible for presentation?
-    private func showErrorAlert(_ error: Error) {
+    private func showErrorAlert(_ error: LocalizedError) {
         let title = "Error occurred"
         let message = error.localizedDescription
         

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E25B4BD92ADD86E100928037 /* MainServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BD82ADD86E100928037 /* MainServices.swift */; };
+		E25B4BDC2ADDA61C00928037 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BDB2ADDA61C00928037 /* LocationError.swift */; };
 		E25B4BDF2ADDC02E00928037 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */; };
 		E2C2699C2ADC7145006D5E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */; };
 		E2C269A32ADC7145006D5E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C269A12ADC7145006D5E72 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		E25B4BD82ADD86E100928037 /* MainServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServices.swift; sourceTree = "<group>"; };
+		E25B4BDB2ADDA61C00928037 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		E2C269982ADC7145006D5E72 /* WikipediaLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikipediaLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		E25B4BDD2ADDA65000928037 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				E25B4BDB2ADDA61C00928037 /* LocationError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		E2C2698F2ADC7144006D5E72 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +133,7 @@
 				E2C269D02ADC77BC006D5E72 /* ViewModels */,
 				E2C269CB2ADC7738006D5E72 /* ViewControllers */,
 				E2C269D12ADC77D0006D5E72 /* Services */,
+				E25B4BDD2ADDA65000928037 /* Errors */,
 				E2C269CC2ADC775F006D5E72 /* Storyboards */,
 				E2C269CD2ADC776F006D5E72 /* Resources */,
 			);
@@ -338,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C269D72ADC7E58006D5E72 /* NetworkService.swift in Sources */,
+				E25B4BDC2ADDA61C00928037 /* LocationError.swift in Sources */,
 				E2C269D32ADC7AF2006D5E72 /* LocationsViewController.swift in Sources */,
 				E2C269D52ADC7B4F006D5E72 /* Location.swift in Sources */,
 				E2C269DB2ADC9443006D5E72 /* LocationsViewModel.swift in Sources */,
