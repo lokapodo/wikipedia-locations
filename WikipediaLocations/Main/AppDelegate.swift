@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let mainServices = MainServices()
-    private(set) lazy var mainBuilder: MainBuilderProtocol = MainBuilder(mainServices: mainServices)
+    private lazy var mainBuilder: MainBuilderProtocol = MainBuilder(mainServices: mainServices)
 
     var window: UIWindow?
 
