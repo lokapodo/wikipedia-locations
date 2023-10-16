@@ -12,14 +12,15 @@ class LocationsViewModel {
     
     // MARK: - Properties
     
-//    @Published var isLoading: Bool = false
     @Published var locations: [Location] = []
+    //    @Published var isLoading: Bool = false
+    @Published var occurredError: Error? = nil
     
-    private let locationsNetworkService: LocationsNetworkService
+    private let locationsNetworkService: LocationsNetworking
     
     // MARK: - Initialization
     
-    init(networkService: LocationsNetworkService) {
+    init(networkService: LocationsNetworking) {
         self.locationsNetworkService = networkService
     }
     
@@ -38,13 +39,14 @@ class LocationsViewModel {
                 strongSelf.locations = locations
             case .failure(let error):
                 print("Error occurred while getting locations: ", error)
+                strongSelf.occurredError = error
             }
         }
     }
     
     func openWikipedia(location: Location) {
-        let lat = String(format: "%.7f", location.lat)
-        let lon = String(format: "%.7f", location.lon)
+        let lat = String(format: "%.6f", location.lat) // FIXME: 6 is enough?
+        let lon = String(format: "%.6f", location.lon)
         guard let url = URL(string: "wikipedia://places?lat=\(lat)&lon=\(lon)") else { return }
         UIApplication.shared.open(url)
     }
