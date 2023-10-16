@@ -14,7 +14,11 @@ class LocationsViewController: UITableViewController {
     
     @IBOutlet weak var latTextField: UITextField!
     @IBOutlet weak var lonTextField: UITextField!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView! {
+        didSet {
+            loadingIndicator.hidesWhenStopped = true
+        }
+    }
 
     private var locations: [Location] = []
     private var cancellables: Set<AnyCancellable> = .init()
@@ -25,8 +29,6 @@ class LocationsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadingIndicator.hidesWhenStopped = true
         
         bindToViewModel()
         viewModel?.fetchLocations()
@@ -48,7 +50,7 @@ class LocationsViewController: UITableViewController {
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] error in
                 if let error = error {
-//                    showErrorAlert(error)
+                    showErrorAlert(error)
                 }
             }.store(in: &cancellables)
         
@@ -78,10 +80,11 @@ class LocationsViewController: UITableViewController {
         viewModel?.openWikipedia(location: Location(lat: lat, lon: lon))
     }
     
-    // FIXME: responsible for presentation?
-    private func showErrorAlert(_ error: LocalizedError) {
+    // MARK: - Error handling
+    
+    private func showErrorAlert(_ error: Error) {
         let title = "Error occurred"
-        let message = error.localizedDescription
+        let message = self.description(for: error)
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -90,6 +93,15 @@ class LocationsViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    private func description(for error: Error) -> String {
+        switch error {
+        case LocationError.wrongLatLonFormat:
+            return "Invalid latitude and longitude format. Please enter it in the correct format."
+        default:
+            return error.localizedDescription
+        }
+    }
+    
     // MARK: - UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
