@@ -9,6 +9,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    let mainServices = MainServices()
 
     var window: UIWindow?
 
@@ -17,17 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let navigationController = window?.rootViewController as? UINavigationController,
               let locationsViewController = navigationController.viewControllers.first as? LocationsTableViewController
         else {
-            print("Error occured: when setting up initial view controllers")
+            print("Error occured: when setting up initial view controller")
             return false
         }
         
-        let networkService = NetworkService()
+        let networkService = mainServices.networkService
         let locationsNetworkService = LocationsNetworkService(networkService: networkService)
         let viewModel = LocationsViewModel(networkService: locationsNetworkService)
         locationsViewController.viewModel = viewModel
         
         return true
     }
+
 
 }
 
