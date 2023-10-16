@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let navigationController = window?.rootViewController as? UINavigationController,
               let locationsViewController = navigationController.viewControllers.first as? LocationsTableViewController
         else {
-            print("Error occured: when setting up initial view controller")
+            print("Error occurred, when setting up initial view controller")
             return false
         }
         

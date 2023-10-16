@@ -70,7 +70,7 @@ class LocationsTableViewController: UITableViewController {
         guard let latString = latTextField.text, let lat = Double(latString),
               let lonString = lonTextField.text, let lon = Double(lonString)
         else {
-            print("Error occured: wrond lat lon format")
+            print("Error occurred: wrong entered lat lon format")
             return
         }
         

@@ -24,7 +24,7 @@ class LocationsViewModel {
         self.locationsNetworkService = networkService
     }
     
-    // MARK: - Methods
+    // MARK: - Public Methods
     
     func fetchLocations() {
         isLoading = true
