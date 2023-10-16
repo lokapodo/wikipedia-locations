@@ -16,11 +16,11 @@ class LocationsViewModel {
     @Published var error: Error? = nil
     @Published var isLoading: Bool = false
     
-    private let locationsNetworkService: LocationsNetworking
+    private let locationsNetworkService: LocationsServiceProtocol
     
     // MARK: - Initialization
     
-    init(networkService: LocationsNetworking) {
+    init(networkService: LocationsServiceProtocol) {
         self.locationsNetworkService = networkService
     }
     

@@ -47,7 +47,7 @@ enum MockError: Error {
     case wrongLatLonFormat
 }
 
-class MockNetworkService: LocationsNetworking {
+class MockNetworkService: LocationsServiceProtocol {
     
     var data: [Location]?
     var error: Error?

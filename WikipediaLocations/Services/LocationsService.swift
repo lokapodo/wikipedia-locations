@@ -7,12 +7,11 @@
 
 import Foundation
 
-protocol LocationsNetworking {
+protocol LocationsServiceProtocol {
     func getLocations(completion: @escaping (Result<[Location], Error>) -> Void)
 }
 
-
-class LocationsNetworkService: LocationsNetworking {
+class LocationsService: LocationsServiceProtocol {
     
     private let networkService: NetworkService
     

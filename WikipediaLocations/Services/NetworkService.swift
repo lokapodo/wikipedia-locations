@@ -11,7 +11,7 @@ class NetworkService {
     
     func executeRequest(with url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let urlRequest = URLRequest(url: url)
-
+        
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))

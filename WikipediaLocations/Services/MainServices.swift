@@ -12,7 +12,5 @@ protocol MainServicesProtocol {
 }
 
 class MainServices: MainServicesProtocol {
-    
     let networkService = NetworkService()
-    
 }
