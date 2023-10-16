@@ -12,9 +12,9 @@ class LocationsViewModel {
     
     // MARK: - Properties
     
-    @Published var locations: [Location] = []
-    @Published var error: Error? = nil
-    @Published var isLoading: Bool = false
+    @Published private(set) var locations: [Location] = []
+    @Published private(set) var error: Error? = nil
+    @Published private(set) var isLoading: Bool = false
     
     private let locationsNetworkService: LocationsServiceProtocol
     
