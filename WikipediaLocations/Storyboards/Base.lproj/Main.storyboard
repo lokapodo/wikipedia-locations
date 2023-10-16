@@ -76,6 +76,10 @@
                                 <constraint firstAttribute="bottom" secondItem="mTH-fK-5YH" secondAttribute="bottom" constant="12" id="y3a-fw-VTv"/>
                             </constraints>
                         </view>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="E5v-1h-n3z">
+                            <rect key="frame" x="0.0" y="333.66666793823242" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" textLabel="6yF-eb-MJL" detailTextLabel="v47-xC-kV5" style="IBUITableViewCellStyleSubtitle" id="kiq-H4-u6I">
                                 <rect key="frame" x="0.0" y="262" width="393" height="43.666667938232422"/>
@@ -110,6 +114,7 @@
                     <navigationItem key="navigationItem" title="Locations" id="v5X-wt-CII"/>
                     <connections>
                         <outlet property="latTextField" destination="r4G-4c-Vom" id="X5e-N7-utT"/>
+                        <outlet property="loadingIndicator" destination="E5v-1h-n3z" id="7oa-bD-dQI"/>
                         <outlet property="lonTextField" destination="Vfr-3I-ovx" id="ky5-0d-E8U"/>
                     </connections>
                 </tableViewController>
@@ -139,7 +144,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

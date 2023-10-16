@@ -10,9 +10,62 @@ import Combine
 
 class LocationsTableViewController: UITableViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var latTextField: UITextField!
     @IBOutlet weak var lonTextField: UITextField!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
+    private var locations: [Location] = []
+    private var cancellables: Set<AnyCancellable> = .init()
+    
+    var viewModel: LocationsViewModel?
+    
+    // MARK: -
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        loadingIndicator.hidesWhenStopped = true
+        
+        bindToViewModel()
+        viewModel?.fetchLocations()
+    }
+    
+    // MARK: - Private
+    
+    private func bindToViewModel() {
+        viewModel?.$locations
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] locations in
+                self.locations = locations
+                self.tableView.reloadData()
+            }.store(in: &cancellables)
+        
+        viewModel?.$error
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] error in
+                if let error = error {
+                    showErrorAlert(error)
+                }
+            }.store(in: &cancellables)
+        
+        viewModel?.$isLoading
+            .dropFirst()
+            .receive(on: DispatchQueue.main)
+            .sink { [unowned self] isLoading in
+                if isLoading {
+                    self.loadingIndicator.startAnimating()
+                } else {
+                    self.loadingIndicator.stopAnimating()
+                }
+            }.store(in: &cancellables)
+    }
+    
+    // MARK: - Actions
+    
     @IBAction func tapOnOpenWikipediaButton(_ sender: Any) {
         guard let latString = latTextField.text, let lat = Double(latString),
               let lonString = lonTextField.text, let lon = Double(lonString)
@@ -23,28 +76,17 @@ class LocationsTableViewController: UITableViewController {
         
         viewModel?.openWikipedia(location: Location(lat: lat, lon: lon))
     }
-
-    private var locations: [Location] = []
-    private var cancellables: Set<AnyCancellable> = .init()
     
-    var viewModel: LocationsViewModel?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        bindToViewModel()
-        viewModel?.fetchLocations()
-    }
-    
-    private func bindToViewModel() {
-        viewModel?.$locations
-            .receive(on: DispatchQueue.main)
-            .sink { [unowned self] locations in
-                self.locations = locations
-                self.tableView.reloadData()
-            }.store(in: &cancellables)
+    // FIXME: responsible for presentation?
+    private func showErrorAlert(_ error: Error) {
+        let title = "Error occurred"
+        let message = error.localizedDescription
         
-        // TODO: error handling + loading
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - UITableViewDataSource

@@ -13,8 +13,8 @@ class LocationsViewModel {
     // MARK: - Properties
     
     @Published var locations: [Location] = []
-    //    @Published var isLoading: Bool = false
-    @Published var occurredError: Error? = nil
+    @Published var error: Error? = nil
+    @Published var isLoading: Bool = false
     
     private let locationsNetworkService: LocationsNetworking
     
@@ -27,19 +27,19 @@ class LocationsViewModel {
     // MARK: - Methods
     
     func fetchLocations() {
-//        isLoading = true
+        isLoading = true
         
         locationsNetworkService.getLocations { [weak self] result in
             guard let strongSelf  = self else { return }
             
-//            strongSelf.isLoading = false
+            strongSelf.isLoading = false
             
             switch result {
             case .success(let locations):
                 strongSelf.locations = locations
             case .failure(let error):
                 print("Error occurred while getting locations: ", error)
-                strongSelf.occurredError = error
+                strongSelf.error = error
             }
         }
     }
