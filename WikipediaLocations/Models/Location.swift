@@ -28,3 +28,7 @@ struct Location: Decodable, Equatable {
         return lhs.lat == rhs.lat && lhs.lon == rhs.lon && lhs.name == rhs.name
     }
 }
+
+struct LocationsWrapper: Decodable {
+    let locations: [Location]
+}

@@ -29,14 +29,13 @@ class LocationsService: LocationsServiceProtocol {
             completion(.failure(URLError(.badURL)))
             return
         }
-        
+
         networkService.executeRequest(with: url) { result in
             switch result {
             case .success(let data):
                 do {
-                    let dict = try JSONDecoder().decode([String: [Location]].self, from: data)
-                    let locations: [Location] = dict["locations"] ?? [] // FIXME: handle [] case?
-                    completion(.success(locations))
+                    let wrapper = try JSONDecoder().decode(LocationsWrapper.self, from: data)
+                    completion(.success(wrapper.locations))
                 } catch (let error) {
                     completion(.failure(error))
                 }
