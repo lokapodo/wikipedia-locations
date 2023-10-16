@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LocationsViewModel {
     
@@ -39,6 +40,13 @@ class LocationsViewModel {
                 print("Error occurred while getting locations: ", error)
             }
         }
+    }
+    
+    func openWikipedia(location: Location) {
+        let lat = String(format: "%.7f", location.lat)
+        let lon = String(format: "%.7f", location.lon)
+        guard let url = URL(string: "wikipedia://places?lat=\(lat)&lon=\(lon)") else { return }
+        UIApplication.shared.open(url)
     }
     
 }

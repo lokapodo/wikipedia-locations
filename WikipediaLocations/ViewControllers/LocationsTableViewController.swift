@@ -17,11 +17,11 @@ class LocationsTableViewController: UITableViewController {
         guard let latString = latTextField.text, let lat = Double(latString),
               let lonString = lonTextField.text, let lon = Double(lonString)
         else {
-            print("Error occured: wrond entered data")
+            print("Error occured: wrond lat lon format")
             return
         }
         
-        openWikipedia(location: Location(lat: lat, lon: lon))
+        viewModel?.openWikipedia(location: Location(lat: lat, lon: lon))
     }
 
     private var locations: [Location] = []
@@ -67,11 +67,7 @@ class LocationsTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let location = locations[indexPath.row]
-        openWikipedia(location: location)
-    }
-    
-    private func openWikipedia(location: Location) {
-        // TODO
+        viewModel?.openWikipedia(location: location)
     }
 
 }
