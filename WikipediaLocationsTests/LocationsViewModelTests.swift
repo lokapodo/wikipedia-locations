@@ -9,21 +9,18 @@ import XCTest
 @testable import WikipediaLocations
 
 class LocationsViewModelTests: XCTestCase {
-     
-    override func setUpWithError() throws {}
-    override func tearDownWithError() throws {}
 
     func testLocationsFetchSuccess() throws {
-        let mockNetworkService = MockNetworkService(data: MockData.locations)
-        let viewModel = LocationsViewModel(networkService: mockNetworkService)
+        let mockService = MockLocationsService(data: MockData.locations)
+        let viewModel = LocationsViewModel(locationsService: mockService)
         viewModel.fetchLocations()
         
         XCTAssertEqual(viewModel.locations, MockData.locations)
     }
     
     func testLocationsFetchFailure() throws {
-        let mockNetworkService = MockNetworkService(error: MockError.brokenData)
-        let viewModel = LocationsViewModel(networkService: mockNetworkService)
+        let mockService = MockLocationsService(error: MockError.brokenData)
+        let viewModel = LocationsViewModel(locationsService: mockService)
         viewModel.fetchLocations()
         
         let resultError = viewModel.error as? MockError
@@ -54,7 +51,7 @@ enum MockError: Error {
     case brokenData
 }
 
-class MockNetworkService: LocationsServiceProtocol {
+class MockLocationsService: LocationsServiceProtocol {
     var data: [Location]?
     var error: Error?
     

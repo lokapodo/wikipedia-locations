@@ -16,12 +16,12 @@ class LocationsViewModel {
     @Published private(set) var error: Error? = nil
     @Published private(set) var isLoading: Bool = false
     
-    private let locationsNetworkService: LocationsServiceProtocol
+    private let locationsService: LocationsServiceProtocol
     
     // MARK: - Initialization
     
-    init(networkService: LocationsServiceProtocol) {
-        self.locationsNetworkService = networkService
+    init(locationsService: LocationsServiceProtocol) {
+        self.locationsService = locationsService
     }
     
     // MARK: - Public Methods
@@ -29,7 +29,7 @@ class LocationsViewModel {
     func fetchLocations() {
         isLoading = true
         
-        locationsNetworkService.getLocations { [weak self] result in
+        locationsService.getLocations { [weak self] result in
             guard let self else { return }
             
             self.isLoading = false
