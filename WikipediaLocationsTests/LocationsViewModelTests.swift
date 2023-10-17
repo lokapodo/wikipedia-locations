@@ -22,12 +22,12 @@ class LocationsViewModelTests: XCTestCase {
     }
     
     func testLocationsFetchFailure() throws {
-        let mockNetworkService = MockNetworkService(error: MockError.wrongLatLonFormat)
+        let mockNetworkService = MockNetworkService(error: MockError.brokenData)
         let viewModel = LocationsViewModel(networkService: mockNetworkService)
         viewModel.fetchLocations()
         
         let resultError = viewModel.error as? MockError
-        XCTAssertEqual(resultError, MockError.wrongLatLonFormat)
+        XCTAssertEqual(resultError, MockError.brokenData)
     }
 
 }
@@ -44,11 +44,10 @@ struct MockData {
 }
       
 enum MockError: Error {
-    case wrongLatLonFormat
+    case brokenData
 }
 
 class MockNetworkService: LocationsServiceProtocol {
-    
     var data: [Location]?
     var error: Error?
     

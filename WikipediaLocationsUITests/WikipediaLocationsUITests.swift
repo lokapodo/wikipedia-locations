@@ -10,32 +10,63 @@ import XCTest
 final class WikipediaLocationsUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    override func tearDownWithError() throws { }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testErrorAlertDisplay() {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let textFieldLat = app.textFields["text_field_lat"]
+        let textFieldLon = app.textFields["text_field_lon"]
+        textFieldLat.tap()
+        textFieldLat.typeText("abc")
+        textFieldLon.tap()
+        textFieldLon.typeText("30.24212")
+        
+        let openWikipediaButton = app.buttons["open_wikipedia_button"]
+        openWikipediaButton.tap()
+        
+        let errorAlert = app.alerts["error_alert"]
+        XCTAssertTrue(errorAlert.exists, "Error alert should be displayed")
+        
+        errorAlert.buttons["Ok"].tap()
     }
+    
+    func testValidLatLonEnter() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let textFieldLat = app.textFields["text_field_lat"]
+        let textFieldLon = app.textFields["text_field_lon"]
+        textFieldLat.tap()
+        textFieldLat.typeText("38.736946")
+        textFieldLon.tap()
+        textFieldLon.typeText("-9.142685")
+        
+        let openWikipediaButton = app.buttons["open_wikipedia_button"]
+        openWikipediaButton.tap()
+        
+        // Chech if there is no alert
+        let noAlertExpectation = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "count == 0"),
+            object: app.alerts
+        )
+        let result = XCTWaiter.wait(for: [noAlertExpectation], timeout: 3.0)
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
+        if result == .completed {
+            // No alert appeared within the expected time, so it's as expected
+        } else {
+            XCTFail("An alert was shown after tapping the button")
         }
+        
+        // Chech if app goes to background (redirects to wikipedia)
+        let expectation = expectation(for: NSPredicate(format: "self.state == %d", XCUIApplication.State.runningBackground.rawValue), evaluatedWith: app, handler: nil)
+
+        let timeout: TimeInterval = 5.0
+        waitForExpectations(timeout: timeout, handler: nil)
+
     }
 }

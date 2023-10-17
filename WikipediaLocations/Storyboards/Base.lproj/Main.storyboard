@@ -30,6 +30,7 @@
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r4G-4c-Vom">
                                             <rect key="frame" x="0.0" y="48" width="353" height="34"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="text_field_lat"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="qhz-LF-X6X"/>
                                             </constraints>
@@ -38,6 +39,7 @@
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vfr-3I-ovx">
                                             <rect key="frame" x="0.0" y="94" width="353" height="34"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="text_field_lon"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="Jb6-jK-TMu"/>
                                             </constraints>
@@ -46,6 +48,7 @@
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ2-Kk-Yrg">
                                             <rect key="frame" x="0.0" y="140" width="353" height="40"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="open_wikipedia_button"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="cee-8a-0MI"/>
                                             </constraints>

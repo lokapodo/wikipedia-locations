@@ -83,10 +83,12 @@ class LocationsViewController: UITableViewController {
     // MARK: - Error handling
     
     private func showErrorAlert(_ error: Error) {
-        let title = "Error occurred"
+        let title = "Error"
         let message = self.description(for: error)
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.view.accessibilityIdentifier = "error_alert"
+        
         let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         alertController.addAction(okAction)
         
@@ -96,7 +98,7 @@ class LocationsViewController: UITableViewController {
     private func description(for error: Error) -> String {
         switch error {
         case LocationError.wrongLatLonFormat:
-            return "Invalid latitude and longitude format. Please enter it in the correct format."
+            return "Invalid latitude and longitude format. Please enter it in the correct format, example: 38.736946 and -9.142685"
         default:
             return error.localizedDescription
         }
