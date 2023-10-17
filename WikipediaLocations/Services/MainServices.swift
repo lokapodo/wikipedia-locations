@@ -8,9 +8,9 @@
 import Foundation
 
 protocol MainServicesProtocol {
-    var networkService: NetworkService { get }
+    var networkService: NetworkServiceProtocol { get }
 }
 
 class MainServices: MainServicesProtocol {
-    let networkService = NetworkService()
+    let networkService: NetworkServiceProtocol = NetworkService()
 }

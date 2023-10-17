@@ -7,7 +7,11 @@
 
 import Foundation
 
-class NetworkService {
+protocol NetworkServiceProtocol {
+    func executeRequest(with url: URL, completion: @escaping (Result<Data, Error>) -> Void)
+}
+
+class NetworkService: NetworkServiceProtocol {
     
     func executeRequest(with url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let urlRequest = URLRequest(url: url)

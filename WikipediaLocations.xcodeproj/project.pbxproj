@@ -10,6 +10,7 @@
 		E25B4BD92ADD86E100928037 /* MainServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BD82ADD86E100928037 /* MainServices.swift */; };
 		E25B4BDC2ADDA61C00928037 /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BDB2ADDA61C00928037 /* LocationError.swift */; };
 		E25B4BDF2ADDC02E00928037 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */; };
+		E25B4BE32ADE998900928037 /* MainBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B4BE22ADE998900928037 /* MainBuilderTests.swift */; };
 		E2C2699C2ADC7145006D5E72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */; };
 		E2C269A32ADC7145006D5E72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C269A12ADC7145006D5E72 /* Main.storyboard */; };
 		E2C269A52ADC7148006D5E72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C269A42ADC7148006D5E72 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		E25B4BD82ADD86E100928037 /* MainServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServices.swift; sourceTree = "<group>"; };
 		E25B4BDB2ADDA61C00928037 /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		E25B4BE22ADE998900928037 /* MainBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilderTests.swift; sourceTree = "<group>"; };
 		E2C269982ADC7145006D5E72 /* WikipediaLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikipediaLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2C269A22ADC7145006D5E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		E2C269B12ADC7149006D5E72 /* WikipediaLocationsTests */ = {
 			isa = PBXGroup;
 			children = (
+				E25B4BE22ADE998900928037 /* MainBuilderTests.swift */,
 				E2C269B22ADC7149006D5E72 /* LocationsViewModelTests.swift */,
 			);
 			path = WikipediaLocationsTests;
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25B4BE32ADE998900928037 /* MainBuilderTests.swift in Sources */,
 				E2C269B32ADC7149006D5E72 /* LocationsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

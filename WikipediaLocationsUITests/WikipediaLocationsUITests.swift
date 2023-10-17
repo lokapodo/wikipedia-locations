@@ -92,7 +92,7 @@ final class WikipediaLocationsUITests: XCTestCase {
         if result == .completed {
             // No alert appeared within the expected time, so it's as expected
         } else {
-            XCTFail("An alert was shown after tapping the button")
+            XCTFail("An alert was shown when entering valid lat lon")
         }
         
         // Chech if app goes to background (redirects to wikipedia)

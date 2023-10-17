@@ -21,8 +21,8 @@ class MainBuilder: MainBuilderProtocol {
     
     func configureLocationsViewController(_ viewController: LocationsViewController) {
         let networkService = mainServices.networkService
-        let locationsNetworkService = LocationsService(networkService: networkService)
-        let viewModel = LocationsViewModel(networkService: locationsNetworkService)
+        let locationsService = LocationsService(networkService: networkService)
+        let viewModel = LocationsViewModel(locationsService: locationsService)
         viewController.viewModel = viewModel
     }
 }
