@@ -17,22 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        setupInitialViewController()
+        setupWindow()
         
         return true
     }
     
-    func setupInitialViewController() {
-        guard let locationsViewController = self.locationsViewController else {
-            fatalError("Could not setup initial view controller from the storyboard")
-        }
-        mainBuilder.configureLocationsViewController(locationsViewController)
-    }
-
-    private var locationsViewController: LocationsViewController? {
-        let navigationController = window?.rootViewController as? UINavigationController
-        let viewController = navigationController?.viewControllers.first as? LocationsViewController
-        return viewController
+    private func setupWindow() {
+        let locationsViewController = mainBuilder.buildLocationsViewController()
+        let navigationController = UINavigationController(rootViewController: locationsViewController)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
 
 }

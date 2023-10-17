@@ -6,24 +6,35 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MainBuilderProtocol {
-    func configureLocationsViewController(_ viewController: LocationsViewController)
+    func buildLocationsViewController() -> LocationsViewController
 }
 
 class MainBuilder: MainBuilderProtocol {
-    
+
     private let mainServices: MainServicesProtocol
     
     init(mainServices: MainServicesProtocol) {
         self.mainServices = mainServices
     }
     
-    func configureLocationsViewController(_ viewController: LocationsViewController) {
+    // MARK: - Public Methods
+    
+    func buildLocationsViewController() -> LocationsViewController {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LocationsViewControllerStoryboardID") as? LocationsViewController
+        else {
+            fatalError("Could not setup LocationsViewController from the storyboard")
+        }
+        
         let networkService = mainServices.networkService
         let locationsService = LocationsService(networkService: networkService)
         let viewModel = LocationsViewModel(locationsService: locationsService)
         viewController.viewModel = viewModel
+        
+        return viewController
     }
 }
 
