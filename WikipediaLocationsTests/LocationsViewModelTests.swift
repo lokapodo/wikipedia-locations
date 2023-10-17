@@ -32,9 +32,16 @@ class LocationsViewModelTests: XCTestCase {
 
 }
 
+// MARK: - 
+
+extension Location: Equatable {
+    public static func ==(lhs: Location, rhs: Location) -> Bool {
+        return lhs.lat == rhs.lat && lhs.lon == rhs.lon && lhs.name == rhs.name
+    }
+}
+
 // MARK: - Mocks
 
-                                                    
 struct MockData {
     static let location1 = Location(name: "Dublin", lat: 53.350140, lon: -6.266155)
     static let location2 = Location(name: "London", lat: 51.509865, lon: -0.118092)
