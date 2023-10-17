@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Location: Decodable, Equatable {
+struct Location: Decodable {
     let name: String?
     let lat: Double
     let lon: Double
@@ -22,10 +22,6 @@ struct Location: Decodable, Equatable {
         self.name = name
         self.lat = lat
         self.lon = lon
-    }
-    
-    static func ==(lhs: Location, rhs: Location) -> Bool {
-        return lhs.lat == rhs.lat && lhs.lon == rhs.lon && lhs.name == rhs.name
     }
 }
 
