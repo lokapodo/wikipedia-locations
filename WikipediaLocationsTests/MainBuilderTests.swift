@@ -10,14 +10,11 @@ import XCTest
 
 final class MainBuilderTests: XCTestCase {
 
-    func testViewModelSet() throws {
+    func testSuccessBuilding() throws {
         let mockNetworkService = MockNetworkService()
         let mockMainServices = MockMainServices(networkService: mockNetworkService)
         let mainBuilder = MainBuilder(mainServices: mockMainServices)
-        let viewController = LocationsViewController()
-        XCTAssertNil(viewController.viewModel)
-
-        mainBuilder.configureLocationsViewController(viewController)
+        let viewController = mainBuilder.buildLocationsViewController()
         XCTAssertNotNil(viewController.viewModel)
     }
 
