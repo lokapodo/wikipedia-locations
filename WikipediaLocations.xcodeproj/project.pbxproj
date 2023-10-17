@@ -94,14 +94,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E25B4BDD2ADDA65000928037 /* Errors */ = {
-			isa = PBXGroup;
-			children = (
-				E25B4BDB2ADDA61C00928037 /* LocationError.swift */,
-			);
-			path = Errors;
-			sourceTree = "<group>";
-		};
 		E25B4BE82ADEBB5E00928037 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +101,18 @@
 				E25B4BE62ADEBB5500928037 /* locations_invalid.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E25B4BE92ADEC50B00928037 /* LocationsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E2C269D42ADC7B4F006D5E72 /* Location.swift */,
+				E2C269DA2ADC9443006D5E72 /* LocationsViewModel.swift */,
+				E2C269D22ADC7AF2006D5E72 /* LocationsViewController.swift */,
+				E2C269D82ADC7E68006D5E72 /* LocationsService.swift */,
+				E25B4BDB2ADDA61C00928037 /* LocationError.swift */,
+			);
+			path = LocationsScreen;
 			sourceTree = "<group>";
 		};
 		E2C2698F2ADC7144006D5E72 = {
@@ -135,11 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				E2C269CE2ADC778D006D5E72 /* Main */,
-				E2C269CF2ADC77AF006D5E72 /* Models */,
-				E2C269D02ADC77BC006D5E72 /* ViewModels */,
-				E2C269CB2ADC7738006D5E72 /* ViewControllers */,
+				E25B4BE92ADEC50B00928037 /* LocationsScreen */,
 				E2C269D12ADC77D0006D5E72 /* Services */,
-				E25B4BDD2ADDA65000928037 /* Errors */,
 				E2C269CC2ADC775F006D5E72 /* Storyboards */,
 				E2C269CD2ADC776F006D5E72 /* Resources */,
 			);
@@ -163,14 +164,6 @@
 				E2C269BC2ADC7149006D5E72 /* WikipediaLocationsUITests.swift */,
 			);
 			path = WikipediaLocationsUITests;
-			sourceTree = "<group>";
-		};
-		E2C269CB2ADC7738006D5E72 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				E2C269D22ADC7AF2006D5E72 /* LocationsViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E2C269CC2ADC775F006D5E72 /* Storyboards */ = {
@@ -200,28 +193,11 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		E2C269CF2ADC77AF006D5E72 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E2C269D42ADC7B4F006D5E72 /* Location.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E2C269D02ADC77BC006D5E72 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				E2C269DA2ADC9443006D5E72 /* LocationsViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		E2C269D12ADC77D0006D5E72 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				E25B4BD82ADD86E100928037 /* MainServices.swift */,
 				E2C269D62ADC7E58006D5E72 /* NetworkService.swift */,
-				E2C269D82ADC7E68006D5E72 /* LocationsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
