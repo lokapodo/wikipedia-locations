@@ -25,11 +25,11 @@ final class MainBuilderTests: XCTestCase {
 
 // MARK: - Mocks
 
-class MockNetworkService: NetworkServiceProtocol {
+private class MockNetworkService: NetworkServiceProtocol {
     func executeRequest(with url: URL, completion: @escaping (Result<Data, Error>) -> Void) {}
 }
 
-class MockMainServices: MainServicesProtocol {
+private class MockMainServices: MainServicesProtocol {
     let networkService: NetworkServiceProtocol
     
     init(networkService: NetworkServiceProtocol) {

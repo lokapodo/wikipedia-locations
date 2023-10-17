@@ -19,16 +19,12 @@ class LocationsService: LocationsServiceProtocol {
         self.networkService = networkService
     }
     
-    // MARK: - Methods
+    // MARK: - Public Methods
     
     func getLocations(completion: @escaping (Result<[Location], Error>) -> Void) {
         
         let urlString = "https://raw.githubusercontent.com/abnamrocoesd/assignment-ios/main/locations.json"
-
-        guard let url = URL(string: urlString) else {
-            completion(.failure(URLError(.badURL)))
-            return
-        }
+        let url = URL(string: urlString)!
 
         networkService.executeRequest(with: url) { result in
             switch result {

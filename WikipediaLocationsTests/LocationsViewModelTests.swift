@@ -39,7 +39,7 @@ extension Location: Equatable {
 
 // MARK: - Mocks
 
-struct MockData {
+private struct MockData {
     static let location1 = Location(name: "Dublin", lat: 53.350140, lon: -6.266155)
     static let location2 = Location(name: "London", lat: 51.509865, lon: -0.118092)
     static let location3 = Location(name: "Barcelona", lat: 41.346176, lon: 2.168365)
@@ -47,11 +47,11 @@ struct MockData {
     static let locations = [location1, location2, location3]
 }
       
-enum MockError: Error {
+private enum MockError: Error {
     case brokenData
 }
 
-class MockLocationsService: LocationsServiceProtocol {
+private class MockLocationsService: LocationsServiceProtocol {
     var data: [Location]?
     var error: Error?
     
