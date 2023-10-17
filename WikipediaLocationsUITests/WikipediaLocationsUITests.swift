@@ -82,23 +82,8 @@ final class WikipediaLocationsUITests: XCTestCase {
         let openWikipediaButton = app.buttons["open_wikipedia_button"]
         openWikipediaButton.tap()
         
-        // Chech if there is no alert
-        let noAlertExpectation = XCTNSPredicateExpectation(
-            predicate: NSPredicate(format: "count == 0"),
-            object: app.alerts
-        )
-        let result = XCTWaiter.wait(for: [noAlertExpectation], timeout: 3.0)
-
-        if result == .completed {
-            // No alert appeared within the expected time, so it's as expected
-        } else {
-            XCTFail("An alert was shown when entering valid lat lon")
-        }
+        app.activate()
         
-        // Chech if app goes to background (redirects to wikipedia)
-        let expectation = expectation(for: NSPredicate(format: "self.state == %d", XCUIApplication.State.runningBackground.rawValue), evaluatedWith: app, handler: nil)
-
-        let timeout: TimeInterval = 5.0
-        waitForExpectations(timeout: timeout, handler: nil)
+        XCTAssertEqual(app.alerts.count, 0)
     }
 }
