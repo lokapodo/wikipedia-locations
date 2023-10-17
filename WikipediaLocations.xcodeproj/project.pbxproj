@@ -16,7 +16,6 @@
 		E2C269A82ADC7148006D5E72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C269A62ADC7148006D5E72 /* LaunchScreen.storyboard */; };
 		E2C269B32ADC7149006D5E72 /* LocationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269B22ADC7149006D5E72 /* LocationsViewModelTests.swift */; };
 		E2C269BD2ADC7149006D5E72 /* WikipediaLocationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269BC2ADC7149006D5E72 /* WikipediaLocationsUITests.swift */; };
-		E2C269BF2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269BE2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift */; };
 		E2C269D32ADC7AF2006D5E72 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D22ADC7AF2006D5E72 /* LocationsViewController.swift */; };
 		E2C269D52ADC7B4F006D5E72 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D42ADC7B4F006D5E72 /* Location.swift */; };
 		E2C269D72ADC7E58006D5E72 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C269D62ADC7E58006D5E72 /* NetworkService.swift */; };
@@ -55,7 +54,6 @@
 		E2C269B22ADC7149006D5E72 /* LocationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModelTests.swift; sourceTree = "<group>"; };
 		E2C269B82ADC7149006D5E72 /* WikipediaLocationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikipediaLocationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C269BC2ADC7149006D5E72 /* WikipediaLocationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaLocationsUITests.swift; sourceTree = "<group>"; };
-		E2C269BE2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaLocationsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E2C269D22ADC7AF2006D5E72 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		E2C269D42ADC7B4F006D5E72 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E2C269D62ADC7E58006D5E72 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				E2C269BC2ADC7149006D5E72 /* WikipediaLocationsUITests.swift */,
-				E2C269BE2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift */,
 			);
 			path = WikipediaLocationsUITests;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C269BD2ADC7149006D5E72 /* WikipediaLocationsUITests.swift in Sources */,
-				E2C269BF2ADC7149006D5E72 /* WikipediaLocationsUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
