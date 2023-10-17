@@ -47,7 +47,7 @@ class LocationsViewModel {
     func openWikipedia(location: Location) {
         let lat = String(format: "%.6f", location.lat)
         let lon = String(format: "%.6f", location.lon)
-        guard let url = URL(string: "wikipedia://places?lat=\(lat)&lon=\(lon)") else { return }
+        guard let url = URL(string: "wikipedia://location?lat=\(lat)&lon=\(lon)") else { return }
         UIApplication.shared.open(url)
     }
     
