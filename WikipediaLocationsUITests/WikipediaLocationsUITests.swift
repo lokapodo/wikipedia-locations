@@ -15,7 +15,7 @@ final class WikipediaLocationsUITests: XCTestCase {
 
     override func tearDownWithError() throws { }
 
-    func testErrorAlertDisplay() {
+    func testErrorAlertDisplayWrongLat() {
         let app = XCUIApplication()
         app.launch()
         
@@ -25,6 +25,39 @@ final class WikipediaLocationsUITests: XCTestCase {
         textFieldLat.typeText("abc")
         textFieldLon.tap()
         textFieldLon.typeText("30.24212")
+        
+        let openWikipediaButton = app.buttons["open_wikipedia_button"]
+        openWikipediaButton.tap()
+        
+        let errorAlert = app.alerts["error_alert"]
+        XCTAssertTrue(errorAlert.exists, "Error alert should be displayed")
+        
+        errorAlert.buttons["Ok"].tap()
+    }
+    
+    func testErrorAlertDisplayWrongLon() {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let textFieldLat = app.textFields["text_field_lat"]
+        let textFieldLon = app.textFields["text_field_lon"]
+        textFieldLat.tap()
+        textFieldLat.typeText("50.293475")
+        textFieldLon.tap()
+        textFieldLon.typeText("2°10'26.5\"E")
+        
+        let openWikipediaButton = app.buttons["open_wikipedia_button"]
+        openWikipediaButton.tap()
+        
+        let errorAlert = app.alerts["error_alert"]
+        XCTAssertTrue(errorAlert.exists, "Error alert should be displayed")
+        
+        errorAlert.buttons["Ok"].tap()
+    }
+    
+    func testErrorAlertDisplayEmptyLatLon() {
+        let app = XCUIApplication()
+        app.launch()
         
         let openWikipediaButton = app.buttons["open_wikipedia_button"]
         openWikipediaButton.tap()
@@ -67,6 +100,5 @@ final class WikipediaLocationsUITests: XCTestCase {
 
         let timeout: TimeInterval = 5.0
         waitForExpectations(timeout: timeout, handler: nil)
-
     }
 }

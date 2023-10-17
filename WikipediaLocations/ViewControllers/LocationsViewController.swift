@@ -98,7 +98,7 @@ class LocationsViewController: UITableViewController {
     private func description(for error: Error) -> String {
         switch error {
         case LocationError.wrongLatLonFormat:
-            return "Invalid latitude and longitude format. Please enter it in the correct format, example: 38.736946 and -9.142685"
+            return "Invalid latitude and longitude format. Please enter it in the decimal degrees format, example: 38.736946 and -9.142685"
         default:
             return error.localizedDescription
         }
