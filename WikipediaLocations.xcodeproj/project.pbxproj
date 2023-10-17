@@ -94,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E226FFF72ADF364E007A1385 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E2C269A92ADC7148006D5E72 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		E25B4BE82ADEBB5E00928037 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +151,7 @@
 				E2C269D12ADC77D0006D5E72 /* Services */,
 				E2C269CC2ADC775F006D5E72 /* Storyboards */,
 				E2C269CD2ADC776F006D5E72 /* Resources */,
+				E226FFF72ADF364E007A1385 /* SupportingFiles */,
 			);
 			path = WikipediaLocations;
 			sourceTree = "<group>";
@@ -186,7 +195,6 @@
 		E2C269CE2ADC778D006D5E72 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E2C269A92ADC7148006D5E72 /* Info.plist */,
 				E2C2699B2ADC7145006D5E72 /* AppDelegate.swift */,
 				E25B4BDE2ADDC02E00928037 /* MainBuilder.swift */,
 			);
@@ -528,7 +536,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX2BE5D6B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WikipediaLocations/Main/Info.plist;
+				INFOPLIST_FILE = WikipediaLocations/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -556,7 +564,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AZX2BE5D6B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WikipediaLocations/Main/Info.plist;
+				INFOPLIST_FILE = WikipediaLocations/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
