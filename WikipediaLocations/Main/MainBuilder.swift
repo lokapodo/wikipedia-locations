@@ -24,9 +24,10 @@ class MainBuilder: MainBuilderProtocol {
     
     func buildLocationsViewController() -> LocationsViewController {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
         guard let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LocationsViewControllerStoryboardID") as? LocationsViewController
         else {
-            fatalError("Could not setup LocationsViewController from the storyboard")
+            fatalError("Could not instantiate LocationsViewController from the storyboard")
         }
         
         let networkService = mainServices.networkService
