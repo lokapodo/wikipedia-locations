@@ -40,28 +40,28 @@ class LocationsViewController: UITableViewController {
         viewModel?.$locations
             .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [unowned self] locations in
-                self.locations = locations
-                self.tableView.reloadData()
+            .sink { [weak self] locations in
+                self?.locations = locations
+                self?.tableView.reloadData()
             }.store(in: &cancellables)
         
         viewModel?.$error
             .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [unowned self] error in
+            .sink { [weak self] error in
                 if let error = error {
-                    showErrorAlert(error)
+                    self?.showErrorAlert(error)
                 }
             }.store(in: &cancellables)
         
         viewModel?.$isLoading
             .dropFirst()
             .receive(on: DispatchQueue.main)
-            .sink { [unowned self] isLoading in
+            .sink { [weak self] isLoading in
                 if isLoading {
-                    self.loadingIndicator.startAnimating()
+                    self?.loadingIndicator.startAnimating()
                 } else {
-                    self.loadingIndicator.stopAnimating()
+                    self?.loadingIndicator.stopAnimating()
                 }
             }.store(in: &cancellables)
     }
@@ -72,7 +72,7 @@ class LocationsViewController: UITableViewController {
         guard let latString = latTextField.text, let lat = Double(latString),
               let lonString = lonTextField.text, let lon = Double(lonString)
         else {
-            print("Error occurred: wrong entered lat lon format")
+            print("Error occurred: wrong lat lon values")
             showErrorAlert(LocationError.wrongLatLonFormat)
             return
         }
@@ -98,7 +98,7 @@ class LocationsViewController: UITableViewController {
     private func description(for error: Error) -> String {
         switch error {
         case LocationError.wrongLatLonFormat:
-            return "Invalid latitude and longitude format. Please enter it in the decimal degrees format, example: 38.736946 and -9.142685"
+            return "Invalid latitude and longitude values. Please enter it in the decimal degrees format, example: 38.736946 and -9.142685"
         default:
             return error.localizedDescription
         }
