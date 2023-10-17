@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Combine
 @testable import WikipediaLocations
 
 class LocationsViewModelTests: XCTestCase {
@@ -13,15 +14,40 @@ class LocationsViewModelTests: XCTestCase {
     func testLocationsFetchSuccess() throws {
         let mockService = MockLocationsService(data: MockData.locations)
         let viewModel = LocationsViewModel(locationsService: mockService)
+        
+        var cancellables: Set<AnyCancellable> = []
+        let expectation = XCTestExpectation()
+        
+        viewModel.$locations
+            .dropFirst()
+            .sink { locations in
+                expectation.fulfill()
+            }.store(in: &cancellables)
+        
         viewModel.fetchLocations()
         
+        wait(for: [expectation], timeout: 1.0)
+        
         XCTAssertEqual(viewModel.locations, MockData.locations)
+
     }
     
     func testLocationsFetchFailure() throws {
         let mockService = MockLocationsService(error: MockError.brokenData)
         let viewModel = LocationsViewModel(locationsService: mockService)
+
+        var cancellables: Set<AnyCancellable> = []
+        let expectation = XCTestExpectation()
+        
+        viewModel.$error
+            .dropFirst()
+            .sink { error in
+                expectation.fulfill()
+            }.store(in: &cancellables)
+        
         viewModel.fetchLocations()
+        
+        wait(for: [expectation], timeout: 1.0)
         
         let resultError = viewModel.error as? MockError
         XCTAssertEqual(resultError, MockError.brokenData)

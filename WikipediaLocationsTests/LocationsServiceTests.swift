@@ -9,34 +9,49 @@ import XCTest
 @testable import WikipediaLocations
 
 class LocationsServiceTests: XCTestCase {
-     
+    
     func testGetLocationsSuccessJsonDecode() throws {
         let jsonData = jsonData(fileName: "locations_valid")
         let mockNetworkService = MockNetworkService(data: jsonData)
         let locationService = LocationsService(networkService: mockNetworkService)
         
+        var finalResult: Result<[Location], Error>!
+        let expectation = XCTestExpectation()
+        
         locationService.getLocations { result in
-            switch result {
-            case .success(let locations):
-                XCTAssertEqual(locations, MockData.locations)
-            default:
-                XCTFail("getLocations should have success result")
-            }
+            finalResult = result
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+        
+        switch finalResult {
+        case .success(let locations):
+            XCTAssertEqual(locations, MockData.locations)
+        default:
+            XCTFail("getLocations should have success result")
         }
     }
+
     
     func testGetLocationsFailureJsonDecode() throws {
         let jsonData = jsonData(fileName: "locations_invalid")
         let mockNetworkService = MockNetworkService(data: jsonData)
         let locationService = LocationsService(networkService: mockNetworkService)
         
+        var finalResult: Result<[Location], Error>!
+        let expectation = XCTestExpectation()
+        
         locationService.getLocations { result in
-            switch result {
-            case .failure(let error):
-                XCTAssertNotNil(error)
-            default:
-                XCTFail("getLocations should have failure result")
-            }
+            finalResult = result
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+        
+        switch finalResult {
+        case .failure(let error):
+            XCTAssertNotNil(error)
+        default:
+            XCTFail("getLocations should have failure result")
         }
     }
     
@@ -44,14 +59,21 @@ class LocationsServiceTests: XCTestCase {
         let mockNetworkService = MockNetworkService(error: MockError.brokenData)
         let locationService = LocationsService(networkService: mockNetworkService)
         
+        var finalResult: Result<[Location], Error>!
+        let expectation = XCTestExpectation()
+        
         locationService.getLocations { result in
-            switch result {
-            case .failure(let error):
-                let resultError = error as? MockError
-                XCTAssertEqual(resultError, MockError.brokenData)
-            default:
-                XCTFail("getLocations should have failure result")
-            }
+            finalResult = result
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+        
+        switch finalResult {
+        case .failure(let error):
+            let resultError = error as? MockError
+            XCTAssertEqual(resultError, MockError.brokenData)
+        default:
+            XCTFail("getLocations should have failure result")
         }
     }
 }
