@@ -23,7 +23,7 @@ Work locally and perform your changes locally (but still using git). Once done, 
 
 ## Prerequisites
 
-1. Clone the repo with the modified Wikipedia app: https://github.com/lokapodo/wikipedia-locations
+1. Clone the repo with the modified Wikipedia app: https://github.com/lokapodo/wikipedia-ios
 2. Run the Wikipedia app 
 
 ## Installation
@@ -38,3 +38,4 @@ Minimum supported iOS: 17.0
 - Validation of entered lat and lon could be improved to avoid redirects to the Wikipedia app with invalid coordinates.
 - The network service is simplified according to the assignment's needs.
 - Error handling could be improved by creating custom errors and providing user-friendly messages for different errors.
+- All commits were pushed to the main branch, without creating separate branches.
