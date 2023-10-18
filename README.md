@@ -37,5 +37,5 @@ Minimum supported iOS: 17.0
 - The code is not 100% covered by tests. For the production app, more test cases should be covered.
 - Validation of entered lat and lon could be improved to avoid redirects to the Wikipedia app with invalid coordinates.
 - The network service is simplified according to the assignment's needs.
-- Error handling could be improved by creating custom errors and providing user-friendly messages for different errors.
+- Error handling could be improved by creating custom errors and providing user-friendly messages for different errors. Also "no internet connection" case could be handled.
 - All commits were pushed to the main branch, without creating separate branches.
